@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+/*
 class Hello extends React.Component {
   render() {
     return <h1>Hello World!!!</h1>;
@@ -11,6 +12,15 @@ class Hello extends React.Component {
 }
 
 const el = <Hello />;
+*/
+
+/* PROPS */
+function Hello(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+const el = <Hello name="Michael" />
+
 
 ReactDOM.render(
   el,
