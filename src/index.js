@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 /*
@@ -14,16 +13,41 @@ class Hello extends React.Component {
 const el = <Hello />;
 */
 
-/* PROPS */
+/* PROPS 
 function Hello(props) {
   return <h1>Hello, {props.name}</h1>;
 }
 
 const el = <Hello name="Michael" />
+*/
+
+/* COMPONENTS USING COMPONENTS 
+function Hello(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+function App() {
+  return <div>
+    <Hello name="Michael" />
+    <Hello name="James" />
+    <Hello name="Andrea" />
+  </div>;
+}
+
+const el = <App />;
+*/
+
+
+/* PROPS IN CLASS COMPONENTS */
+class Hello extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}!</h1>;
+  }
+}
 
 
 ReactDOM.render(
-  el,
+  <Hello name="Jaker" />,
   document.getElementById('root')
 );
 
