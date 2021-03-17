@@ -4,8 +4,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-function Hello() {
-  return <h1>Hello Wonderful World!</h1>;
+class Hello extends React.Component {
+  render() {
+    return <h1>Hello World!!!</h1>;
+  }
 }
 
 const el = <Hello />;
@@ -14,7 +16,6 @@ ReactDOM.render(
   el,
   document.getElementById('root')
 );
-
 
 
 // If you want to start measuring performance in your app, pass a function
