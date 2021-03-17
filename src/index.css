@@ -25,3 +25,8 @@ p {
   width: 20%;
   display: inline-block;
 }
+
+.title {
+  font-size: 3em;
+  padding-left: 30px;
+}

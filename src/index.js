@@ -53,7 +53,7 @@ ReactDOM.render(
 );
 
 
-/* SHOPPING LIST EXAMPLE */
+/* SHOPPING LIST EXAMPLE 
 function Item(props) {
   return <div className="item">
     <b>Name:</b> {props.name} <br />
@@ -78,6 +78,24 @@ ReactDOM.render(
   list,
   document.getElementById('root')
 );
+*/
+
+/* STATE */
+class Hello extends React.Component {
+  state = {
+    name: "Jake",
+    city: "Los Angeles"
+  }
+  render() {
+    return <h1 className="title">Hello, {this.state.name}, you live in {this.state.city}. </h1>;
+  }
+}
+
+ReactDOM.render(<Hello />, document.getElementById('root'));
+
+
+
+
 
 
 
