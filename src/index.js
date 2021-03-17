@@ -80,18 +80,62 @@ ReactDOM.render(
 );
 */
 
-/* STATE */
+/* STATE 
 class Hello extends React.Component {
   state = {
     name: "Jake",
     city: "Los Angeles"
   }
+
   render() {
+
     return <h1 className="title">Hello, {this.state.name}, you live in {this.state.city}. </h1>;
   }
 }
 
 ReactDOM.render(<Hello />, document.getElementById('root'));
+*/
+
+/* COUNTER APP */
+class Counter extends React.Component {
+  state = {
+    counter: 0
+  };
+
+  increment = () => {
+    this.setState({
+      counter: this.state.counter + 1
+    });
+  }
+
+  decrement = () => {
+    this.setState({
+      counter: this.state.counter - 1
+    });
+  }
+
+  reset = () => {
+    this.setState({
+      counter: this.state.counter = 0
+    });
+  }
+  render() {
+    return <div>
+      <p> {this.state.counter} </p>
+      <button onClick={this.increment} >Increment</button>
+      <button onClick={this.decrement} >Decrement</button>
+      <button onClick={this.reset} >Reset</button>
+    </div>;
+  }
+}
+
+ReactDOM.render(<Counter />, document.getElementById('root'));
+
+
+
+
+
+
 
 
 

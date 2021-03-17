@@ -30,3 +30,7 @@ p {
   font-size: 3em;
   padding-left: 30px;
 }
+
+button {
+  margin-left: 25px;
+}
