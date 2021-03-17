@@ -38,18 +38,47 @@ const el = <App />;
 */
 
 
-/* PROPS IN CLASS COMPONENTS */
+/* PROPS IN CLASS COMPONENTS 
 class Hello extends React.Component {
   render() {
     return <h1>Hello, {this.props.name}!</h1>;
   }
 }
 
+const el = <Hello name="Jake" />
 
 ReactDOM.render(
-  <Hello name="Jaker" />,
+  el,
   document.getElementById('root')
 );
+
+
+/* SHOPPING LIST EXAMPLE */
+function Item(props) {
+  return <div className="item">
+    <b>Name:</b> {props.name} <br />
+    <b>Price:</b> ${props.price}
+  </div>;
+}
+
+
+function App() {
+  return <div>
+    <Item name="Strawberries" price="1.99" />
+    <Item name="Eggs" price="2.99" />
+    <Item name="Milk" price="3.99" />
+    <Item name="Bacon" price="5.99" />
+    <Item name="Chips" price="4.49" />
+  </div>
+}
+
+const list = <App />
+
+ReactDOM.render(
+  list,
+  document.getElementById('root')
+);
+
 
 
 // If you want to start measuring performance in your app, pass a function
