@@ -235,20 +235,56 @@ ReactDOM.render(<Hello />, document.getElementById('root'));
 
 
 // EVENT HANDLING
-function Counter() {
-  const [counter, setCounter] = useState(0);
+// function Counter() {
+//   const [counter, setCounter] = useState(0);
 
-  function increment() {
-    setCounter(counter + 1);
-  }
+//   function increment() {
+//     setCounter(counter + 1);
+//   }
 
-  return <div>
-    <p>{counter}</p>
-    <button onClick={increment}>Increment</button>
-  </div>;
+//   return <div>
+//     <p>{counter}</p>
+//     <button onClick={increment}>Increment</button>
+//   </div>;
+// }
+
+// ReactDOM.render(<Counter />, document.getElementById('root'));
+
+// EXAMPLE 
+// function Toggle() {
+//   const [val, setVal] = useState("ON");
+//   function toggle() {
+//     setVal((val == "ON") ? "OFF" : "ON");
+//   }
+//   return <button onClick={toggle}>{val}</button>;
+// }
+
+// ReactDOM.render(<Toggle />, document.getElementById('root'));
+
+
+// RENDERING A LIST
+function MyList(props) {
+  const arr = props.data;
+  const listItems = arr.map((val) =>
+    <li>{val}</li>
+  );
+  return <ul>{listItems}</ul>;
 }
 
-ReactDOM.render(<Counter />, document.getElementById('root'));
+const arr = ["A", "B", "C", "D"];
+const el = <MyList data={arr} />;
+
+ReactDOM.render(el, document.getElementById('root'));
+
+
+
+
+
+
+
+
+
+
 
 
 
