@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
@@ -96,7 +96,7 @@ class Hello extends React.Component {
 ReactDOM.render(<Hello />, document.getElementById('root'));
 */
 
-/* COUNTER APP */
+/* COUNTER APP 
 class Counter extends React.Component {
   state = {
     counter: 0
@@ -132,9 +132,59 @@ class Counter extends React.Component {
 ReactDOM.render(<Counter />, document.getElementById('root'));
 
 
+/* HOOKS 
+function Hello() {
+  const [name, setName] = useState('Jake my man');
+
+  return <h1>Hello {name}.</h1>
+}
+
+ReactDOM.render(<Hello />, document.getElementById('root'));
+*/
 
 
+// COUNTER APP USING HOOKS
+// function Counter() {
+//   const [counter, setCounter] = useState(0);
 
+//   function increment() {
+//     setCounter(counter + 1);
+//   }
+
+//   return <div>
+//     <p>{counter}</p>
+//     <button onClick={increment}>Increment</button>
+//   </div>;
+// }
+
+// ReactDOM.render(<Counter />, document.getElementById('root'));
+
+
+// LIFECYCLE METHODS
+class Counter extends React.Component {
+  state = {
+    counter: 0
+  }
+  increment = () => {
+    this.setState({
+      counter: this.state.counter + 1
+    });
+  }
+  componentDidMount() {
+    this.setState({
+      counter: 44
+    });
+  }
+  render() {
+    return <div>
+      <p>{this.state.counter}</p>
+      <button onClick={this.increment}>Increment</button>
+    </div>;
+  }
+}
+
+
+ReactDOM.render(<Counter />, document.getElementById('root'));
 
 
 
