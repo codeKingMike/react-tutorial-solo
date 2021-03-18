@@ -161,6 +161,34 @@ ReactDOM.render(<Hello />, document.getElementById('root'));
 
 
 // LIFECYCLE METHODS
+// class Counter extends React.Component {
+//   state = {
+//     counter: 0
+//   }
+//   increment = () => {
+//     this.setState({
+//       counter: this.state.counter + 1
+//     });
+//   }
+//   componentDidMount() {
+//     this.setState({
+//       counter: 44
+//     });
+//   }
+//   render() {
+//     return <div>
+//       <p>{this.state.counter}</p>
+//       <button onClick={this.increment}>Increment</button>
+//     </div>;
+//   }
+// }
+
+
+// ReactDOM.render(<Counter />, document.getElementById('root'));
+
+
+
+// componentDidUpdate
 class Counter extends React.Component {
   state = {
     counter: 0
@@ -170,10 +198,8 @@ class Counter extends React.Component {
       counter: this.state.counter + 1
     });
   }
-  componentDidMount() {
-    this.setState({
-      counter: 44
-    });
+  componentDidUpdate() {
+    alert('Numbers of clicks: ' + this.state.counter);
   }
   render() {
     return <div>
@@ -185,9 +211,6 @@ class Counter extends React.Component {
 
 
 ReactDOM.render(<Counter />, document.getElementById('root'));
-
-
-
 
 
 
