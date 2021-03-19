@@ -263,7 +263,49 @@ ReactDOM.render(<Hello />, document.getElementById('root'));
 
 
 // RENDERING A LIST
-function MyList(props) {
+// function MyList(props) {
+//   const arr = props.data;
+//   const listItems = arr.map((val, index) =>
+//     <li key={index}>{val}</li>
+//   );
+//   return <ul>{listItems}</ul>;
+// }
+
+// const arr = ["A", "B", "C", "D"];
+// const el = <MyList data={arr} />;
+
+// ReactDOM.render(el, document.getElementById('root'));
+
+
+
+// CONTACT MANAGER
+function AddPersonForm(props) {
+  const [person, setPerson] = useState("");
+
+  function handelChange(e) {
+    setPerson(e.target.value);
+  }
+
+  function handelSubmit(e) {
+    props.handelSubmit(person);
+    setPerson('');
+    e.preventDefault();
+  }
+
+  return (
+    <form onSubmit={handelSubmit}>
+      <h2>Add Contacts</h2>
+      <input type="text"
+        placeholder="Add new contact"
+        onChange={handelChange}
+        value={person}
+      />
+      <button type="submit">Add</button>
+    </form>
+  );
+}
+
+function PeopleList(props) {
   const arr = props.data;
   const listItems = arr.map((val, index) =>
     <li key={index}>{val}</li>
@@ -271,10 +313,26 @@ function MyList(props) {
   return <ul>{listItems}</ul>;
 }
 
-const arr = ["A", "B", "C", "D"];
-const el = <MyList data={arr} />;
+function ContactManager(props) {
+  const [contacts, setContacts] = useState(props.data);
 
-ReactDOM.render(el, document.getElementById('root'));
+  function addPerson(name) {
+    setContacts([...contacts, name]);
+  }
+
+  return (
+    <div>
+      <AddPersonForm handelSubmit={addPerson} />
+      <PeopleList data={contacts} />
+    </div>
+  );
+}
+
+
+const contacts = ["Jake Smith", "Tony Stark", "Bruce Wayne"];
+
+
+ReactDOM.render(<ContactManager data={contacts} />, document.getElementById("root"));
 
 
 
