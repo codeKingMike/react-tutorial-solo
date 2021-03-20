@@ -279,6 +279,63 @@ ReactDOM.render(<Hello />, document.getElementById('root'));
 
 
 // CONTACT MANAGER
+// function AddPersonForm(props) {
+//   const [person, setPerson] = useState("");
+
+//   function handelChange(e) {
+//     setPerson(e.target.value);
+//   }
+
+//   function handelSubmit(e) {
+//     props.handelSubmit(person);
+//     setPerson('');
+//     e.preventDefault();
+//   }
+
+//   return (
+//     <form onSubmit={handelSubmit}>
+//       <h2>Add Contacts</h2>
+//       <input type="text"
+//         placeholder="Add new contact"
+//         onChange={handelChange}
+//         value={person}
+//       />
+//       <button type="submit">Add</button>
+//     </form>
+//   );
+// }
+
+// function PeopleList(props) {
+//   const arr = props.data;
+//   const listItems = arr.map((val, index) =>
+//     <li key={index}>{val}</li>
+//   );
+//   return <ul>{listItems}</ul>;
+// }
+
+// function ContactManager(props) {
+//   const [contacts, setContacts] = useState(props.data);
+
+//   function addPerson(name) {
+//     setContacts([...contacts, name]);
+//   }
+
+//   return (
+//     <div>
+//       <AddPersonForm handelSubmit={addPerson} />
+//       <PeopleList data={contacts} />
+//     </div>
+//   );
+// }
+
+
+// const contacts = ["Jake Smith", "Tony Stark", "Bruce Wayne"];
+
+
+// ReactDOM.render(<ContactManager data={contacts} />, document.getElementById("root"));
+
+
+
 function AddPersonForm(props) {
   const [person, setPerson] = useState("");
 
@@ -287,25 +344,28 @@ function AddPersonForm(props) {
   }
 
   function handelSubmit(e) {
-    props.handelSubmit(person);
-    setPerson('');
+    if (person !== "") {
+      props.handelSubmit(person);
+      setPerson("");
+    }
+
     e.preventDefault();
   }
 
   return (
     <form onSubmit={handelSubmit}>
-      <h2>Add Contacts</h2>
+      <h2>Add Contact</h2>
       <input type="text"
         placeholder="Add new contact"
         onChange={handelChange}
         value={person}
       />
-      <button type="submit">Add</button>
+      <button className="btn" type="submit">Add</button>
     </form>
   );
 }
 
-function PeopleList(props) {
+function PersonList(props) {
   const arr = props.data;
   const listItems = arr.map((val, index) =>
     <li key={index}>{val}</li>
@@ -313,7 +373,7 @@ function PeopleList(props) {
   return <ul>{listItems}</ul>;
 }
 
-function ContactManager(props) {
+function ContentManager(props) {
   const [contacts, setContacts] = useState(props.data);
 
   function addPerson(name) {
@@ -323,16 +383,15 @@ function ContactManager(props) {
   return (
     <div>
       <AddPersonForm handelSubmit={addPerson} />
-      <PeopleList data={contacts} />
+      <PersonList data={contacts} />
     </div>
   );
 }
 
+const contacts = ["2pac", "Notorious BIG", "Nas"];
 
-const contacts = ["Jake Smith", "Tony Stark", "Bruce Wayne"];
+ReactDOM.render(<ContentManager data={contacts} />, document.getElementById('root'));
 
-
-ReactDOM.render(<ContactManager data={contacts} />, document.getElementById("root"));
 
 
 

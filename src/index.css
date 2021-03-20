@@ -34,3 +34,30 @@ p {
 button {
   margin-left: 23px;
 }
+
+.btn {
+  background: royalblue;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 700;
+}
+
+form {
+  text-align: center;
+}
+
+li {
+  background-color: cadetblue;
+  margin: 10px 10px;
+  border-radius: 10px;
+  width: 20%;
+  text-align: center;
+  color: #fff;
+  font-weight: 500;
+  list-style: none;
+  padding: 10px;
+  display: inline-block;
+  text-transform: capitalize;
+}
